@@ -159,6 +159,8 @@ While simulated hardware produces /slightly/ different results to actual hardwar
 
 Code is developed in Jupyter notebooks allowing for quick prototypng, and utilize PyTorch for pre-processing and post-processing of our neural network, taking advantage of GPU Acceleration via Nvidia CUDA if available. This allows us to process images in realtime on Google's Compute Engine VM's via Google Colab, allowing for low operating costs, high performance, and good portability.
 
+Nix and NixOS are used for dependency management, allowing us to create reproducible, binary cached, distributed and non-privileged builds for our software. This also allows for quicker deployments on hardware, and provides stability for the end user, as well as allows us to quickly spin up development environments on unix-based hardware.
+
 #+caption: *Sample Generated Quantum Circuit on IBMQ*
 #+attr_html: :width 100%
 [[file:./assets/circuit.png]]
