@@ -1,6 +1,6 @@
 #+title: Accelerating Precision Medicine with Quantum Computing and AI
 #+subtitle: Exploring the future of Personalized Health Care
-#+author: Shaurya Singh
+#+author: Shaurya Singh, Abrahim Mahmud
 #+startup: fold
 
 #+latex_class: chameleon
@@ -62,9 +62,7 @@ Quantum computers process information in a fundamentally different way from trad
 #+attr_html: :width 100%
 [[file:./assets/hybridnetwork.png]]
 
-The most computationally demanding part of gradient-based algorithms, namely, computing the fitness function and its gradient for control input, can be accomplished by the process of evolution and measurement on quantum hardware. By posing queries to and receiving answers from these devices, classical computing devices update the control parameters until an optimal control solution is found.
-
-Using this hybrid approach gives rise to interesting areas of research that seek to leverage the principles of quantum mechanics to augment machine learning or vice-versa. Enabling us to enhance classical ML algorithms by outsourcing difficult calculations to a quantum computer.
+The most computationally demanding part of gradient-based algorithms, namely, computing the fitness function and its gradient for control input, can be accomplished by the process of evolution and measurement on quantum hardware. By posing queries to and receiving answers from these devices, classical computing devices update the control parameters until an optimal control solution is found [cite:@Li2017]. Using this hybrid approach gives rise to interesting areas of research that seek to leverage the principles of quantum mechanics to augment machine learning or vice-versa. Enabling us to enhance classical ML algorithms by outsourcing difficult calculations to a quantum computer.
 
 To create a quantum-classical neural network, one can implement a hidden layer for a neural network using a parameterized quantum circuit, a quantum circuit where the rotation angles for each gate are specified by the components of a classical input vector. The outputs from the neural network's previous layer will be collected and used as the inputs for a parameterized circuit. The measurement statistics of the circuit can then be collected and used as inputs for the following layer.
 
@@ -82,9 +80,9 @@ where \(h_{i}\) is the value of neuron i at each hidden layer. \(R(h_{i})\) repr
 
 ** Generative Adversarial Networks
 
-Generative Adversarial Networks, or GANs for short, are an approach to generative modeling using deep learning methods, such as convolutional neural networks. Generative modeling is an unsupervised learning task in machine learning that involves automatically discovering and learning the regularities or patterns in input data in such a way that the model can be used to generate or output new examples that plausibly could have been drawn from the original dataset.
+Generative Adversarial Networks, or GANs for short, are an approach to generative modeling using deep learning methods, such as convolutional neural networks. Generative modeling is an unsupervised learning task in machine learning that involves automatically discovering and learning the regularities or patterns in input data in such a way that the model can be used to generate or output new examples that plausibly could have been drawn from the original dataset [cite:@pmlr-v119-choi20a]
 
-GANs are a clever way of training a generative model by framing the problem as a supervised learning problem with two sub-models: the generator model that we train to generate new examples, and the discriminator model that tries to classify examples as either real (from the domain) or fake (generated). The two models are trained together in a zero-sum game, adversarial, until the discriminator model is fooled about half the time, meaning the generator model is generating plausible examples. This can be modeled through the equation
+GANs are a clever way of training a generative model by framing the problem as a supervised learning problem with two sub-models: the generator model that we train to generate new examples, and the discriminator model that tries to classify examples as either real (from the domain) or fake (generated). The two models are trained together in a zero-sum game, adversarial, until the discriminator model is fooled about half the time, meaning the generator model is generating plausible examples. This can be modeled through the equation [cite:@Wang2020]
 
 \begin{align}
 \min_{G}\max_{D}\mathbb{E}_{x\sim p_{\text{data}}(x)}[\log{D(x)}] +  \mathbb{E}_{z\sim p_{\text{generated}}(z)}[1 - \log{D(G(z))}]
@@ -92,7 +90,7 @@ GANs are a clever way of training a generative model by framing the problem as a
 
 *** MolGAN
 
-Existing drug discovery pipelines take 5-10 years and cost billions of dollars. Computational approaches aim to sample from regions of the whole molecular and solid-state compounds called chemical space which could be on the order of 1060. Deep generative models can model the underlying probability distribution of both the physical structures and property of drugs and relate them nonlinearly. By exploiting patterns in massive datasets, these models can distill salient features that characterize the molecules. We can utilize Generative Adversarial Networks (GANs) discover drug candidates by generating molecular structures that obey chemical and physical properties and show affinity towards binding with the receptor for a target disease.
+Existing drug discovery pipelines take 5-10 years and cost billions of dollars. Computational approaches aim to sample from regions of the whole molecular and solid-state compounds called chemical space which could be on the order of 1060. Deep generative models can model the underlying probability distribution of both the physical structures and property of drugs and relate them nonlinearly. By exploiting patterns in massive datasets, these models can distill salient features that characterize the molecules. We can utilize Generative Adversarial Networks (GANs) discover drug candidates by generating molecular structures that obey chemical and physical properties and show affinity towards binding with the receptor for a target disease. [cite:@Li_Topaloglu_Ghosh_2021]
 
 Currently, this is accomplished through the Tensorflow library [[https://github.com/nicola-decao/MolGAN][MolGAN]]. However,  However, classical GANs cannot explore certain regions of the chemical space and suffer from curse-of-dimensionality. Computing these drug candidates can be computationally expensive, and the resource requirements of these classical algorithms increase exponentially with problem size. On the other hand. A full quantum GAN may require more than 90 qubits even to generate QM9-like small molecules, and is impractical in the current day and age
 
@@ -146,11 +144,11 @@ Firstly, only generated molecules that have high affinity towards the receptor b
 
 Our Image Data is obtained from Standford's ImageNet collection, a large-scale ontology of images built upon the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500–1000 clean and full resolution images, with currently over 14,197,122 images and 21841 synsets indexed. The specific dataset used in this example can be found at [[https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia][Paul Timothy: Chest X-RAY Pneumonia Dataset]], and is liscensed under CC0 1.0: Public Domain.
 
-The Molecular data used to train our MolGAN and QuGAN models is the QM9 Dataset obtained from Anatole von Lilienfeld. The dataset contains the computed geometric, energetic, electronic, and thermodynamic properties for 134k stable small organic molecules made up of CHONF. These molecules correspond to the subset of all 133,885 species with up to nine heavy atoms (CONF) out of the GDB-17 chemical universe of 166 billion organic molecules. The model is trained on geometries, corresponding harmonic frequencies, dipole moments, polarizabilities, along with energies and enthalpies. The dataset is hosted on [[https://doi.org/10.6084/m9.figshare.c.978904.v5][figshare]].
+The Molecular data used to train our MolGAN and QuGAN models is the QM9 Dataset obtained from Anatole von Lilienfeld. The dataset contains the computed geometric, energetic, electronic, and thermodynamic properties for 134k stable small organic molecules made up of CHONF. These molecules correspond to the subset of all 133,885 species with up to nine heavy atoms (CONF) out of the GDB-17 chemical universe of 166 billion organic molecules. The model is trained on geometries, corresponding harmonic frequencies, dipole moments, polarizabilities, along with energies and enthalpies. [cite:@Raghunathan2019]
 
 ** Tools and Hardware
 
-The open-source Qiskit framework provides convenient access to multiple quantum simulators as well as a real quantum computer backend. The user can choose to utilize either IBM's cloud-based QASM simulator technology, Google's local equivalent Cirq, and Pennylane's quicker but less accurate lightning simulator. All three backends allow for quick training and testing via quantum simulators and real quantum hardware.
+The open-source Qiskit framework provides convenient access to multiple quantum simulators as well as a real quantum computer backend. The user can choose to utilize either IBM's cloud-based QASM simulator technology, Google's local equivalent Cirq, and Pennylane's quicker but less accurate lightning simulator. All three backends allow for quick training and testing via quantum simulators and real quantum hardware [cite:@cross2018ibm].
 
 #+caption: *Actual vs. Simulated Hardware*
 #+attr_latex: :width 250pt
@@ -169,7 +167,7 @@ Code is developed in Jupyter notebooks allowing for quick prototypng, and utiliz
 
 ** Speed
 
-This is the largest benefit of quantum-accelerated machine learning.  We can see that in both algorithms, quantum computing provided an exponential increase in speed over the non-accelerated counterpart. In the case of QGAN, We can see anywhere from a 8-32% decrease in the time needed to generate molecules, with the same input parameters. In the case of our QuTorch-HG algorithm, it can process a batch of images within 1/10th of a second, allowing for models to be trained at 95% accuracy in under 5 minutes! A similar model, written with tensorflow and trained on the same cpu, took 32 minutes to achieve 94.3% accuracy.
+This is the largest benefit of quantum-accelerated machine learning.  We can see that in both algorithms, quantum computing provided an exponential increase in speed over the non-accelerated counterpart. In the case of QGAN, We can see anywhere from a 8-32% decrease in the time needed to generate molecules, with the same input parameters. In the case of our QuTorch-HG algorithm, it can process a batch of images within 1/10th of a second, allowing for models to be trained at 95% accuracy in under 5 minutes. A similar model, written with tensorflow and trained on the same cpu, took 32 minutes to achieve 94.3% accuracy.
 
 #+caption: *Training comparison among GAN flavors*
 #+attr_html: :width 100%
@@ -201,10 +199,9 @@ As of early 2022, IBM Quantum Services allows researchers and students to use th
 
 On the other hand our algorithms can also be applied to healthcare cost analysis, such as improving insurance pricing computations, allowing for lower average premiums, as well as better-tailored premium options. We strongly believe investing in quantum computing now will result in increased profits in the future.
 
-
 * Conclusion and Further Research
 
-As you can see Healthcare data, collected from the many different modalities and locations that surround patients—is underused today. Clinical factors only account for a small percentage of health-relevant data. Therefore, obtaining actionable insights from other areas, including genomics, behavior, and social and environmental influences, is critical.
+Healthcare data, collected from the many different modalities and locations that surround patients—is underused today. Clinical factors only account for a small percentage of health-relevant data. Therefore, obtaining actionable insights from other areas, including genomics, behavior, and social and environmental influences, is critical.
 
 Quantum-enhanced machine learning algorithms stand out for their breadth of application, their efficiency and relatively low running costs. We are entering an era where the characteristics of health datasets, such as being frequently heterogeneous and unevenly distributed, are producing complex computational challenges for modern AI. For instance, researchers have been exploring how to speed up the computationally expensive algorithms that are at the core of machine learning and AI modeling with quantum approaches, including operations with large matrices.
 
