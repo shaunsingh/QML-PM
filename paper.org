@@ -11,8 +11,6 @@
 #+options: html-postamble:nil
 #+options: broken-links:mark
 
-#+bibliography: paper.bib
-
 #+begin_abstract
 The convergence of quantum computing, artificial intelligence, and precision medicine promises to revolutionize health care. Precision medicine methods identify phenotypes of patients with less-common responses to treatment or unique healthcare needs.  AI  leverages sophisticated computation and inference to generate insights, enables the system to reason and learn, and empowers clinician decision-making through augmented intelligence. Quantum-accelerated machine learning could support further breakthroughs in this area and ultimately enable causal inference models for drugs, identifying and explaining relationships among interventions and treatments on the one hand, and outcomes on the other in real-time, to provide the next-best medical action at the individual level.
 
@@ -31,7 +29,7 @@ The convergence of quantum computing, artificial intelligence, and precision med
 
 * Introduction
 
-Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent. Increasingly, this data helps address 4 challenges associated with healthcare
+Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent  . Increasingly, this data helps address 4 challenges associated with healthcare:
 
 - Better health
 - Lower cost
@@ -40,7 +38,7 @@ Healthcare data—such as information from clinical trials, disease registries, 
 
 At the same time, healthcare consumers are making more decisions and have to navigate an increasingly complex system. Traditionally, diagnosing a patient’s condition has been based heavily on the umbrella approach, which is based solely on the patient-reported symptoms, resulting in an umbrella diagnosis and treatment that frequently fails to achieve their intended effects due to individual variability. As a result, many existing therapies fail to achieve their intended effects due to individual variability. Precision medicine aims to allow tailor prevention and treatment with an individual approach. Due to the complexity of human biology, individualized medicine requires taking into account aspects that go well beyond standard medical care. Medical care only has a relative contribution of 10 to 20 percent to outcomes; health-related behaviors, socioeconomic factors, and environmental aspects account for the other 80 to 90 percent. Computationally, the interdependencies and correlations among these diverse contributors create formidable challenges concerning optimizing treatment effectiveness.
 
-Significant investments are being made to deliver the right data and powerful insights at the point of care. Industry incumbents and new entrants alike are trying to create digital experiences that reinforce healthy, preventive behaviors. Despite that, accounting for the exponential possibilities from this diversity of new data is stretching the capabilities of classical computing systems.
+Significant investments are being made to deliver the right data and powerful insights at the point of care. Industry incumbents and new entrants alike are trying to create digital experiences that reinforce healthy, preventive behaviors. Despite that, accounting for the exponential possibilities from this diversity of new data is stretching the capabilities of classical computing systems. [cite:@Emily:2020].
 
 * AI in Precision Medicine
 
@@ -132,7 +130,7 @@ The open-source Qiskit framework provides convenient access to multiple quantum 
 #+attr_html: :width 100%
 [[file:./assets/simulatedvsreal.png]]
 
-While simulated hardware produces /slightly/ different results to actual hardware, the margin is within 1%. The tests below were conducted using actual IBMQ hardware, on the =ibmq_lima= quantum computer.
+While simulated hardware produces /slightly/ different results to actual hardware, the margin is within 1%. The tests below were conducted using actual IBMQ hardware, on the =ibmq_lima= quantum computer [cite:@IBM:2021]
 
 Code is developed in Jupyter notebooks allowing for quick prototypng, and utilize PyTorch for pre-processing and post-processing of our neural network, taking advantage of GPU Acceleration via Nvidia CUDA if available. This allows us to process images in realtime on Google's Compute Engine VM's via Google Colab, allowing for low operating costs, high performance, and good portability.
 
@@ -180,6 +178,8 @@ On the other hand our algorithms can also be applied to healthcare cost analysis
 
 * References
 
+#+cite_export: csl acm-siggraph.csl
+#+bibliography: bibliography.bib
 #+print_bibliography: 
 
 #+begin_quote
