@@ -6,7 +6,7 @@ class NavbarNoAuth extends Component {
     return (
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
-          qml-pm
+          QML-PM
           <i className="fab fa-connectdevelop"></i>
         </h1>
       </nav>

@@ -12,8 +12,8 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="NavbarItems">
-        <h1 className="navbar-logo">
-          qml-pm
+        <h1 className="navbar-logo" >
+          QML-PM
           <i className="fab fa-connectdevelop"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
