@@ -68,7 +68,13 @@ Using this hybrid approach gives rise to interesting areas of research that seek
 
 To create a quantum-classical neural network, one can implement a hidden layer for a neural network using a parameterized quantum circuit, a quantum circuit where the rotation angles for each gate are specified by the components of a classical input vector. The outputs from the neural network's previous layer will be collected and used as the inputs for a parameterized circuit. The measurement statistics of the circuit can then be collected and used as inputs for the following layer.
 
-In this example, \sigma is a nonlinear function and \(h_{i}\) is the value of neuron i at each hidden layer. \(R(h_{i})\) represents any rotation gate about an angle equal to \(h_{i}\) and \(y\) is the final prediction value generated from the hybrid network
+Each classical equation is modeled through the nonlinear function
+
+\begin{align}
+h_{x}=\sigma(w_{a}x_{a}+w_{b}x_{b}+w_{c}x_{c})
+\end{align}
+
+where \(h_{i}\) is the value of neuron i at each hidden layer. \(R(h_{i})\) represents any rotation gate about an angle equal to \(h_{i}\) and \(y\) is the final prediction value generated from the hybrid network.
 
 #+caption: *Quantum-classical Neural Network using a Parameterized Quantum Circuit*
 #+attr_html: :width 100%
@@ -78,7 +84,11 @@ In this example, \sigma is a nonlinear function and \(h_{i}\) is the value of ne
 
 Generative Adversarial Networks, or GANs for short, are an approach to generative modeling using deep learning methods, such as convolutional neural networks. Generative modeling is an unsupervised learning task in machine learning that involves automatically discovering and learning the regularities or patterns in input data in such a way that the model can be used to generate or output new examples that plausibly could have been drawn from the original dataset.
 
-GANs are a clever way of training a generative model by framing the problem as a supervised learning problem with two sub-models: the generator model that we train to generate new examples, and the discriminator model that tries to classify examples as either real (from the domain) or fake (generated). The two models are trained together in a zero-sum game, adversarial, until the discriminator model is fooled about half the time, meaning the generator model is generating plausible examples.
+GANs are a clever way of training a generative model by framing the problem as a supervised learning problem with two sub-models: the generator model that we train to generate new examples, and the discriminator model that tries to classify examples as either real (from the domain) or fake (generated). The two models are trained together in a zero-sum game, adversarial, until the discriminator model is fooled about half the time, meaning the generator model is generating plausible examples. This can be modeled through the equation
+
+\begin{align}
+\min_{G}\max_{D}\mathbb{E}_{x\sim p_{\text{data}}(x)}[\log{D(x)}] +  \mathbb{E}_{z\sim p_{\text{generated}}(z)}[1 - \log{D(G(z))}]
+\end{align}
 
 *** MolGAN
 
@@ -105,7 +115,24 @@ The full code for both notebooks are available under [[file:prototype/][the prot
 #+attr_html: :width 100%
 [[file:./assets/imagenet.png]]
 
-We have created a base neural network model, which utilizes hybrid machine learning to create a model trained from any dataset in ImageNet format. The base model is used as the base for Transfer Learning, on an Image Classification task (based on resnet18). The last layer of this pre-trained model (fully-connected/fc layer) is then modified through a quantum machine learning framework, generating a new model. We will be testing its efficiency, practicality, and accuracy. We are training the model with 4 Qubits at 8 epochs.
+We have created a base neural network model, which utilizes hybrid machine learning to create a model trained from any dataset in ImageNet format. The base model is used as the base for Transfer Learning, on an Image Classification task (based on resnet18). The last layer of this pre-trained model (fully-connected/fc layer) is then modified through a quantum machine learning framework, generating a new model. We will be testing its efficiency, practicality, and accuracy. We are training the model with 4 Qubits at 8 epochs. Loss is calculated using the Huber loss method, with the following equation
+
+\begin{align}
+L_{\delta}=
+    \left\{\begin{matrix}
+        \frac{1}{2}(y - \hat{y})^{2} & if \left | (y - \hat{y})  \right | < \delta\\
+        \delta ((y - \hat{y}) - \frac1 2 \delta) & otherwise
+    \end{matrix}\right.
+\end{align}
+
+Accuracy is calculated via a confusion matrix, with the following metrics
+
+\begin{align}
+Accuracy &= \frac{TP+TN}{TP+TN+FP+FN}\\
+Precision &= \frac{TP}{TP+FP}\\
+Recall &= \frac{TP}{TP+FN}\\
+F1 &= \frac{2*Precision*Recall}{Precision+Recall} = \frac{2*TP}{2*TP+FP+FN}
+\end{align}
 
 ** Quantum Accelerated Drug & Molecule Generation (QGAN-HG)
 
@@ -175,6 +202,9 @@ As of early 2022, IBM Quantum Services allows researchers and students to use th
 On the other hand our algorithms can also be applied to healthcare cost analysis, such as improving insurance pricing computations, allowing for lower average premiums, as well as better-tailored premium options. We strongly believe investing in quantum computing now will result in increased profits in the future.
 
 * Conclusion and Further Research
+
+
+
 
 * References
 

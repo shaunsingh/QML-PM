@@ -1,4 +1,4 @@
-% Created 2022-01-23 Sun 13:16
+% Created 2022-01-23 Sun 14:08
 % Intended LaTeX compiler: pdflatex
 \documentclass{scrartcl}
 \renewcommand\sectionformat{\llap{\thesection\autodot\enskip}}
@@ -205,7 +205,7 @@ The convergence of quantum computing, artificial intelligence, and precision med
 
 \begin{itemize}
 \item \textbf{Keywords:} Quantum Computing, Artificial intelligence, Precision Medicine
-\item \textbf{Environment:}
+\item \textbf{Environment:} \href{https://www.gnu.org/software/emacs/}{Emacs} 29.0, \href{https://www.gnu.org/software/emacs/}{Org mode} 9.6 \& \href{https://www.python.org/}{Python} 3.9.10
 \item \textbf{License:} MIT
 \end{itemize}
 \end{abstract}
@@ -221,7 +221,7 @@ The convergence of quantum computing, artificial intelligence, and precision med
 \end{quote}
 
 \section{Introduction}
-\label{sec:org3746fb1}
+\label{sec:org48ebeae}
 
 Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent  . Increasingly, this data helps address 4 challenges associated with healthcare:
 
@@ -237,7 +237,7 @@ At the same time, healthcare consumers are making more decisions and have to nav
 Significant investments are being made to deliver the right data and powerful insights at the point of care. Industry incumbents and new entrants alike are trying to create digital experiences that reinforce healthy, preventive behaviors. Despite that, accounting for the exponential possibilities from this diversity of new data is stretching the capabilities of classical computing systems. [\citeprocitem{1}{Grumbling and Horowitz 2020}].
 
 \section{AI in Precision Medicine}
-\label{sec:orgaa38e6b}
+\label{sec:org3e99254}
 
 \begin{figure}[htbp]
 \centering
@@ -248,7 +248,7 @@ Significant investments are being made to deliver the right data and powerful in
 A key aspect of tailoring medical approaches is proactivity. Early treatments and preventive interventions tend to drastically improve outcomes and optimize costs. Classical machine learning has already shown some promise in predicting the risk of future diseases for a range of patient groups based on EHRs. Supervised and unsupervised quantum-enhanced machine learning techniques could allow earlier more accurate, and more granular risk predictions. Eventually, medical practitioners might even have the tools to understand how an individual’s risk for any given condition changes over time, enabled by continual virtual diagnostics based on ongoing data streams from individuals.
 
 \subsection{Accelerating AI with Quantum Computing}
-\label{sec:org5f9b1a5}
+\label{sec:org9e9021c}
 
 Quantum computers process information in a fundamentally different way from traditional computers. Previous computer technology advancements—such as integrated circuits—enabled faster computing, but were still based on classical information processing. These computers manipulate quantum bits (qubits). These are unlike classical bits, which store information as either a 0 or 1, and they can display uniquely quantum properties, such as entanglement. As a result, it becomes possible to construct quantum algorithms that can outperform their classical counterparts which are not able to leverage quantum phenomena.
 
@@ -259,7 +259,7 @@ Quantum computers process information in a fundamentally different way from trad
 \end{itemize}
 
 \subsection{Hybrid Quantum-Classical Neural Networks}
-\label{sec:org4513971}
+\label{sec:org00af154}
 
 \begin{figure}[htbp]
 \centering
@@ -273,7 +273,13 @@ Using this hybrid approach gives rise to interesting areas of research that seek
 
 To create a quantum-classical neural network, one can implement a hidden layer for a neural network using a parameterized quantum circuit, a quantum circuit where the rotation angles for each gate are specified by the components of a classical input vector. The outputs from the neural network's previous layer will be collected and used as the inputs for a parameterized circuit. The measurement statistics of the circuit can then be collected and used as inputs for the following layer.
 
-In this example, \(\sigma\) is a nonlinear function and \(h_{i}\) is the value of neuron i at each hidden layer. \(R(h_{i})\) represents any rotation gate about an angle equal to \(h_{i}\) and \(y\) is the final prediction value generated from the hybrid network
+Each classical equation is modeled through the nonlinear function
+
+\begin{align}
+h_{x}=\sigma(w_{a}x_{a}+w_{b}x_{b}+w_{c}x_{c})
+\end{align}
+
+where \(h_{i}\) is the value of neuron i at each hidden layer. \(R(h_{i})\) represents any rotation gate about an angle equal to \(h_{i}\) and \(y\) is the final prediction value generated from the hybrid network.
 
 \begin{figure}[htbp]
 \centering
@@ -282,21 +288,25 @@ In this example, \(\sigma\) is a nonlinear function and \(h_{i}\) is the value o
 \end{figure}
 
 \subsection{Generative Adversarial Networks}
-\label{sec:org4a73d5d}
+\label{sec:org29e917a}
 
 Generative Adversarial Networks, or GANs for short, are an approach to generative modeling using deep learning methods, such as convolutional neural networks. Generative modeling is an unsupervised learning task in machine learning that involves automatically discovering and learning the regularities or patterns in input data in such a way that the model can be used to generate or output new examples that plausibly could have been drawn from the original dataset.
 
-GANs are a clever way of training a generative model by framing the problem as a supervised learning problem with two sub-models: the generator model that we train to generate new examples, and the discriminator model that tries to classify examples as either real (from the domain) or fake (generated). The two models are trained together in a zero-sum game, adversarial, until the discriminator model is fooled about half the time, meaning the generator model is generating plausible examples.
+GANs are a clever way of training a generative model by framing the problem as a supervised learning problem with two sub-models: the generator model that we train to generate new examples, and the discriminator model that tries to classify examples as either real (from the domain) or fake (generated). The two models are trained together in a zero-sum game, adversarial, until the discriminator model is fooled about half the time, meaning the generator model is generating plausible examples. This can be modeled through the equation
+
+\begin{align}
+\min_{G}\max_{D}\mathbb{E}_{x\sim p_{\text{data}}(x)}[\log{D(x)}] +  \mathbb{E}_{z\sim p_{\text{generated}}(z)}[1 - \log{D(G(z))}]
+\end{align}
 
 \subsubsection{MolGAN}
-\label{sec:org6af9af7}
+\label{sec:org07a4bd5}
 
 Existing drug discovery pipelines take 5-10 years and cost billions of dollars. Computational approaches aim to sample from regions of the whole molecular and solid-state compounds called chemical space which could be on the order of 1060. Deep generative models can model the underlying probability distribution of both the physical structures and property of drugs and relate them nonlinearly. By exploiting patterns in massive datasets, these models can distill salient features that characterize the molecules. We can utilize Generative Adversarial Networks (GANs) discover drug candidates by generating molecular structures that obey chemical and physical properties and show affinity towards binding with the receptor for a target disease.
 
 Currently, this is accomplished through the Tensorflow library \href{https://github.com/nicola-decao/MolGAN}{MolGAN}. However,  However, classical GANs cannot explore certain regions of the chemical space and suffer from curse-of-dimensionality. Computing these drug candidates can be computationally expensive, and the resource requirements of these classical algorithms increase exponentially with problem size. On the other hand. A full quantum GAN may require more than 90 qubits even to generate QM9-like small molecules, and is impractical in the current day and age
 
 \subsubsection{Qubit-efficient Quantum Molecule Generation}
-\label{sec:org3384f98}
+\label{sec:org7497f82}
 
 Once again, we can apply our hybrid approach. A qubit-efficient quantum GAN with a hybrid generator (QGAN-HG) can be used to learn a richer representation of molecules via searching exponentially large chemical space with fewer qubits and more efficiently than a classical GAN. The QGAN-HG model is composed of a hybrid quantum generator that supports various number of qubits and quantum circuit layers, and, a classical discriminator. The approach is significantly quicker than our classical GAN model.
 
@@ -305,14 +315,14 @@ Once again, we can apply our hybrid approach. A qubit-efficient quantum GAN with
 \end{center}
 
 \section{Prototype}
-\label{sec:orgc2eb20e}
+\label{sec:orgc004852}
 
 To test the speed, practicality, efficiency, and cost of quantum-accelerated ML as well as its usefulness in precision medicine, we have devised two prototypes written in Python. The concise, expressive, and dynamic nature of the Python language makes it well suited for prototyping tasks. Notebook one will test how viable our QML approach is at accelerating image and text sorting. This script can be adapted to identify mutations, distinguish genomic variants, as well as identify an indivudual's susceptiblity to rare diseases through an analysis of their previous health and history. Notebook 2 will generate viable drugs based on ones that currently exist, and will test how viable our QML approach is to accelerating current conventional drug discovery pipelines. Both models utilize PyTrorch and IBM's Quantum Services for training and testing
 
 The full code for both notebooks are available under \href{prototype/}{the prototype folder}.
 
 \subsection{Image recognition (QuTorch-HG)}
-\label{sec:orgb83bbdc}
+\label{sec:orgb3d0933}
 
 \begin{figure}[htbp]
 \centering
@@ -320,10 +330,27 @@ The full code for both notebooks are available under \href{prototype/}{the proto
 \caption{\textbf{Hybrid Base Nueral Network}}
 \end{figure}
 
-We have created a base neural network model, which utilizes hybrid machine learning to create a model trained from any dataset in ImageNet format. The base model is used as the base for Transfer Learning, on an Image Classification task (based on resnet18). The last layer of this pre-trained model (fully-connected/fc layer) is then modified through a quantum machine learning framework, generating a new model. We will be testing its efficiency, practicality, and accuracy. We are training the model with 4 Qubits at 8 epochs.
+We have created a base neural network model, which utilizes hybrid machine learning to create a model trained from any dataset in ImageNet format. The base model is used as the base for Transfer Learning, on an Image Classification task (based on resnet18). The last layer of this pre-trained model (fully-connected/fc layer) is then modified through a quantum machine learning framework, generating a new model. We will be testing its efficiency, practicality, and accuracy. We are training the model with 4 Qubits at 8 epochs. Loss is calculated using the Huber loss method, with the following equation
+
+\begin{align}
+L_{\delta}=
+    \left\{\begin{matrix}
+        \frac{1}{2}(y - \hat{y})^{2} & if \left | (y - \hat{y})  \right | < \delta\\
+        \delta ((y - \hat{y}) - \frac1 2 \delta) & otherwise
+    \end{matrix}\right.
+\end{align}
+
+Accuracy is calculated via a confusion matrix, with the following metrics
+
+\begin{align}
+Accuracy &= \frac{TP+TN}{TP+TN+FP+FN}\\
+Precision &= \frac{TP}{TP+FP}\\
+Recall &= \frac{TP}{TP+FN}\\
+F1 &= \frac{2*Precision*Recall}{Precision+Recall} = \frac{2*TP}{2*TP+FP+FN}
+\end{align}
 
 \subsection{Quantum Accelerated Drug \& Molecule Generation (QGAN-HG)}
-\label{sec:org76ff07f}
+\label{sec:org00e2ec5}
 
 \begin{figure}[htbp]
 \centering
@@ -334,14 +361,14 @@ We have created a base neural network model, which utilizes hybrid machine learn
 Firstly, only generated molecules that have high affinity towards the receptor binding sites are considered as valid. Next, a parameterized quantum circuit with last-layer N measures the expectation values and a processes it through a classical stage. Then, we apply the atom layer and bond layer to generate synthetic molecular graphs. Afterwards, a batch of real molecules from a training dataset (in this case we are using QM9) and a batch of generated synthetic molecules are fed into a classical discriminator for real/synthetic prediction and Frechet distance score calculation.
 
 \subsection{Data}
-\label{sec:org25dde5d}
+\label{sec:org269d80a}
 
 Our Image Data is obtained from Standford's ImageNet collection, a large-scale ontology of images built upon the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500–1000 clean and full resolution images, with currently over 14,197,122 images and 21841 synsets indexed. The specific dataset used in this example can be found at \href{https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia}{Paul Timothy: Chest X-RAY Pneumonia Dataset}, and is liscensed under CC0 1.0: Public Domain.
 
 The Molecular data used to train our MolGAN and QuGAN models is the QM9 Dataset obtained from Anatole von Lilienfeld. The dataset contains the computed geometric, energetic, electronic, and thermodynamic properties for 134k stable small organic molecules made up of CHONF. These molecules correspond to the subset of all 133,885 species with up to nine heavy atoms (CONF) out of the GDB-17 chemical universe of 166 billion organic molecules. The model is trained on geometries, corresponding harmonic frequencies, dipole moments, polarizabilities, along with energies and enthalpies. The dataset is hosted on \href{https://doi.org/10.6084/m9.figshare.c.978904.v5}{figshare}.
 
 \subsection{Tools and Hardware}
-\label{sec:orgdbffe93}
+\label{sec:org2908f15}
 
 The open-source Qiskit framework provides convenient access to multiple quantum simulators as well as a real quantum computer backend. The user can choose to utilize either IBM's cloud-based QASM simulator technology, Google's local equivalent Cirq, and Pennylane's quicker but less accurate lightning simulator. All three backends allow for quick training and testing via quantum simulators and real quantum hardware.
 
@@ -362,10 +389,10 @@ Code is developed in Jupyter notebooks allowing for quick prototypng, and utiliz
 \end{figure}
 
 \section{Results}
-\label{sec:orga8ccec7}
+\label{sec:orgde3234d}
 
 \subsection{Speed}
-\label{sec:orgfc5ab1f}
+\label{sec:orgc8c028e}
 
 This is the largest benefit of quantum-accelerated machine learning.  We can see that in both algorithms, quantum computing provided an exponential increase in speed over the non-accelerated counterpart. In the case of QGAN, We can see anywhere from a 8-32\% decrease in the time needed to generate molecules, with the same input parameters. In the case of our QuTorch-HG algorithm, it can process a batch of images within 1/10th of a second, allowing for models to be trained at 95\% accuracy in under 5 minutes! A similar model, written with tensorflow and trained on the same cpu, took 32 minutes to achieve 94.3\% accuracy.
 
@@ -376,7 +403,7 @@ This is the largest benefit of quantum-accelerated machine learning.  We can see
 \end{figure}
 
 \subsection{Accuracy}
-\label{sec:org8b71621}
+\label{sec:org18efb0c}
 
 In both prototypes, accuracy was as expected. The QuTorch-HG algorithm tested at around 96.23\% accuracy on average on average after 8 epochs. The QGAN prototype created valid molecules 100\% of the time during our testing.
 
@@ -404,17 +431,20 @@ In both prototypes, accuracy was as expected. The QuTorch-HG algorithm tested at
 \end{figure}
 
 \subsection{Pricing}
-\label{sec:org2502bef}
+\label{sec:org101ffef}
 
 As of early 2022, IBM Quantum Services allows researchers and students to use their 5 qubit quantum computers for development free of charge. The GPU accelerator was provided by Google's Colab program, free of charge as well. Those looking for real-time analysis can utilize Google Compute Engine VM's, such as the A2 Accelerator for just \$0.009 an hour. Our hybrid model is effecient and as all computation is handled through the cloud, energy costs are nominal.
 
 On the other hand our algorithms can also be applied to healthcare cost analysis, such as improving insurance pricing computations, allowing for lower average premiums, as well as better-tailored premium options. We strongly believe investing in quantum computing now will result in increased profits in the future.
 
 \section{Conclusion and Further Research}
-\label{sec:org1f114d9}
+\label{sec:orgba86c27}
+
+
+
 
 \section{References}
-\label{sec:orgddb3177}
+\label{sec:orgc0f0fd3}
 
 \begin{hangparas}{1.5em}{1}
 \hypertarget{citeproc_bib_item_1}{\textsc{Grumbling, E. and Horowitz, M.} 2020. \href{https://doi.org/10.17226/25196}{Quantum computing}. .}
