@@ -92,7 +92,7 @@ function Dashboard() {
                               <span>Allergies:</span> None
                             </div>
                             <div class="patient-info__col">
-                              <span>Diseases:</span> None
+                              <span>Diseases:</span> Influenza
                             </div>
                           </div>
                         </div>
@@ -116,11 +116,12 @@ function Dashboard() {
                     <div class="grid__col grid__col--14 grid__col--margin grid__col--padding bg-gray10 mb0">
                       <div class="grid__row justify-sb">
                         <div class="grid__col grid__col--mb-12">
-                          <h3 class="grid__col-title">Blood Pressure</h3>
+                          <h3 class="grid__col-title">Risk of Cancer %</h3>
+                          <span class="grid__col-subtitle"></span>
                           <span class="grid__col-subinfo gradient-blue gradient-text">
-                            122 / 79
+                            17%
                           </span>
-                          <span class="grid__col-subtitle">NORMAL (mm/Hg)</span>
+                          <span class="grid__col-subtitle">MODERATE LEVEL</span>
                         </div>
                         <div class="grid__col grid__col--mb-12 d-flex justify-fe"></div>
                       </div>
@@ -133,54 +134,52 @@ function Dashboard() {
                     <div class="grid__col grid__col--14 grid__col--margin grid__col--padding bg-gray10 mb0">
                       <div class="grid__row justify-sb">
                         <div class="grid__col grid__col--mb-12">
-                          <h3 class="grid__col-title">Heart Rate</h3>
+                          <h3 class="grid__col-title">Risk of Diabetes %</h3>
+                          <span class="grid__col-subtitle"></span>
                           <span class="grid__col-subinfo gradient-lightblue gradient-text">
-                            83
+                            57%
                           </span>
-                          <span class="grid__col-subtitle">NORMAL (bpm)</span>
+                          <span class="grid__col-subtitle">LOW-HIGH LEVEL</span>
                         </div>
                         <div class="grid__col grid__col--mb-12 d-flex justify-fe"></div>
                       </div>
                       <nav
                         class="dropdown-menu dropdown-menu--content"
                         id="newpatientsdropdown"
-                      >
-                      </nav>
+                      ></nav>
                     </div>
                     <div class="grid__col grid__col--14 grid__col--margin grid__col--padding bg-gray10 mb0">
                       <div class="grid__row justify-sb">
                         <div class="grid__col grid__col--mb-12">
-                          <h3 class="grid__col-title">Glucose</h3>
+                          <h3 class="grid__col-title">PNEUMONIA</h3>
+                          <span class="grid__col-subtitle"></span>
                           <span class="grid__col-subinfo gradient-pink gradient-text">
-                            86
+                            NEGATIVE
                           </span>
-                          <span class="grid__col-subtitle">NORMAL (mg/dl)</span>
                         </div>
                         <div class="grid__col grid__col--mb-12 d-flex justify-fe"></div>
                       </div>
                       <nav
                         class="dropdown-menu dropdown-menu--content"
                         id="alertdropdown"
-                      >
-                      </nav>
+                      ></nav>
                     </div>
                     <div class="grid__col grid__col--14 grid__col--margin grid__col--padding bg-gray10 mb0">
                       <div class="grid__row justify-sb">
                         <div class="grid__col grid__col--mb-12">
-                          <h3 class="grid__col-title">Cholesterol</h3>
-                          <span class="grid__col-subinfo">71</span>
-                          <span class="grid__col-subtitle">NORMAL (mg/dl)</span>
+                          <h3 class="grid__col-title">Last Doctor's Visit</h3>
+                          <span class="grid__col-subtitle"></span>
+                          <span class="grid__col-subinfo">12 / 27 / 2021</span>
                         </div>
                         <div class="grid__col grid__col--mb-12 d-flex justify-fe"></div>
                       </div>
                       <nav
                         class="dropdown-menu dropdown-menu--content"
                         id="alertdropdown"
-                      >
-                      </nav>
+                      ></nav>
                     </div>
                   </div>
-                  
+
                   <div class="grid__row">
                     <div class="grid__col grid__col--16 grid__col--mb-12 grid__col--margin grid__col--padding gradient-blue widget-icon selected">
                       <Link
@@ -189,7 +188,8 @@ function Dashboard() {
                       >
                         {" "}
                         <img src={Stethoscope} alt="" title="" />
-                        <h5>Record New Symptom</h5>
+                        <span class="widget-icon__badge">INFLUENZA</span>
+                        <h5>KNOWN CONDITIONS</h5>
                       </Link>
                     </div>
 
@@ -201,7 +201,7 @@ function Dashboard() {
                         {" "}
                         <span class="widget-icon__badge">3 NEW</span>
                         <img src={Results} alt="" title="" />
-                        <h5>Results</h5>
+                        <h5>TRAIN / QuTorch-HG</h5>
                       </Link>
                     </div>
                     <div class="grid__col grid__col--16 grid__col--mb-12 grid__col--margin grid__col--padding gradient-pink widget-icon selected">
@@ -211,7 +211,7 @@ function Dashboard() {
                       >
                         <span class="widget-icon__badge">2 NEW</span>
                         <img src={Doctor} alt="" title="" />
-                        <h5>Find a Doctor</h5>
+                        <h5>GENERATE / QuGAN-HG</h5>
                       </Link>
                     </div>
                   </div>
