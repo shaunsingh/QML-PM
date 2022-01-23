@@ -10,15 +10,15 @@ import { useState } from "react";
 import NavbarNoAuth from "./components/Navbar/NavbarNoAuth";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true); //change state to true to see navbar items, leave blank to see noAuth bar
 
   return (
     <div className="App">
-      {isAuth ? <NavbarNoAuth /> : <Navbar />}
+      {!isAuth & window.pathname!=="/login" ? <NavbarNoAuth /> : <Navbar />}
       <Router>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} />}/>
           <Route path="/describe-symptoms" element={<DescribeSymptoms />} />
           <Route
             path="/personal-information"
