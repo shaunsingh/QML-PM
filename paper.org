@@ -29,14 +29,14 @@ The convergence of quantum computing, artificial intelligence, and precision med
 
 * Introduction
 
-Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent  . Increasingly, this data helps address 4 challenges associated with healthcare:
+Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent [cite:@healthit:2021]. Increasingly, this data helps address 4 challenges associated with healthcare:
 
 - Better health
 - Lower cost
 - Enhanced patient experiences
 - Improved healthcare practitioner work lives.
 
-At the same time, healthcare consumers are making more decisions and have to navigate an increasingly complex system. Traditionally, diagnosing a patient’s condition has been based heavily on the umbrella approach, which is based solely on the patient-reported symptoms, resulting in an umbrella diagnosis and treatment that frequently fails to achieve their intended effects due to individual variability. As a result, many existing therapies fail to achieve their intended effects due to individual variability. Precision medicine aims to allow tailor prevention and treatment with an individual approach. Due to the complexity of human biology, individualized medicine requires taking into account aspects that go well beyond standard medical care. Medical care only has a relative contribution of 10 to 20 percent to outcomes; health-related behaviors, socioeconomic factors, and environmental aspects account for the other 80 to 90 percent. Computationally, the interdependencies and correlations among these diverse contributors create formidable challenges concerning optimizing treatment effectiveness.
+At the same time, healthcare consumers are making more decisions and have to navigate an increasingly complex system. Traditionally, diagnosing a patient’s condition has been based heavily on the umbrella approach, which is based solely on the patient-reported symptoms, resulting in an umbrella diagnosis and treatment that frequently fails to achieve their intended effects due to individual variability. As a result, many existing therapies fail to achieve their intended effects due to individual variability. Precision medicine aims to allow tailor prevention and treatment with an individual approach. [cite:@Ravizza2019]. Due to the complexity of human biology, individualized medicine requires taking into account aspects that go well beyond standard medical care. Medical care only has a relative contribution of 10 to 20 percent to outcomes; health-related behaviors, socioeconomic factors, and environmental aspects account for the other 80 to 90 percent [cite:@Magnan2017]. Computationally, the interdependencies and correlations among these diverse contributors create formidable challenges concerning optimizing treatment effectiveness. [cite:@McDermott2012]
 
 Significant investments are being made to deliver the right data and powerful insights at the point of care. Industry incumbents and new entrants alike are trying to create digital experiences that reinforce healthy, preventive behaviors. Despite that, accounting for the exponential possibilities from this diversity of new data is stretching the capabilities of classical computing systems. [cite:@Emily:2020].
 
@@ -46,15 +46,15 @@ Significant investments are being made to deliver the right data and powerful in
 #+attr_html: ::width 100%
 [[file:./assets/precisionMedicineApproach.png]]
 
-A key aspect of tailoring medical approaches is proactivity. Early treatments and preventive interventions tend to drastically improve outcomes and optimize costs. Classical machine learning has already shown some promise in predicting the risk of future diseases for a range of patient groups based on EHRs. Supervised and unsupervised quantum-enhanced machine learning techniques could allow earlier more accurate, and more granular risk predictions. Eventually, medical practitioners might even have the tools to understand how an individual’s risk for any given condition changes over time, enabled by continual virtual diagnostics based on ongoing data streams from individuals.
+A key aspect of tailoring medical approaches is proactivity. Early treatments and preventive interventions tend to drastically improve outcomes and optimize costs. Classical machine learning has already shown some promise in predicting the risk of future diseases for a range of patient groups based on EHRs [cite:@Jauk2020]. Supervised and unsupervised quantum-enhanced machine learning techniques could allow earlier more accurate, and more granular risk predictions. Eventually, medical practitioners might even have the tools to understand how an individual’s risk for any given condition changes over time, enabled by continual virtual diagnostics based on ongoing data streams from individuals. [cite:@Kumar2021]
 
 ** Accelerating AI with Quantum Computing
 
-Quantum computers process information in a fundamentally different way from traditional computers. Previous computer technology advancements—such as integrated circuits—enabled faster computing, but were still based on classical information processing. These computers manipulate quantum bits (qubits). These are unlike classical bits, which store information as either a 0 or 1, and they can display uniquely quantum properties, such as entanglement. As a result, it becomes possible to construct quantum algorithms that can outperform their classical counterparts which are not able to leverage quantum phenomena.
+Quantum computers process information in a fundamentally different way from traditional computers. Previous computer technology advancements—such as integrated circuits—enabled faster computing, but were still based on classical information processing. These computers manipulate quantum bits (qubits). These are unlike classical bits, which store information as either a 0 or 1, and they can display uniquely quantum properties, such as entanglement. As a result, it becomes possible to construct quantum algorithms that can outperform their classical counterparts which are not able to leverage quantum phenomena. [cite:@Montanaro2016]
 
-- Chemistry, machine learning/artificial intelligence (AI), optimization, or simulation tasks. Machine learning has shown potential to be enhanced by quantum computing and is symbiotically helping drive quantum advances
+- Chemistry, machine learning/artificial intelligence (AI), optimization, or simulation tasks. Machine learning has shown potential to be enhanced by quantum computing and is symbiotically helping drive quantum advances [cite:@Carleo2017]
 - Complex correlations and interdependencies among many highly interconnected elements, such as molecular structures in which many electrons interact
-- Inherent scaling limits of relevant classical algorithms. For instance, the resource requirements of classical algorithms may increase exponentially with problem size, as is the case when simulating the time evolution of quantum systems.
+- Inherent scaling limits of relevant classical algorithms. For instance, the resource requirements of classical algorithms may increase exponentially with problem size, as is the case when simulating the time evolution of quantum systems [cite:@Whitfield2011].
 
 ** Hybrid Quantum-Classical Neural Networks
 
@@ -140,7 +140,7 @@ F1 &= \frac{2*Precision*Recall}{Precision+Recall} = \frac{2*TP}{2*TP+FP+FN}
 #+attr_html: :width 100%
 [[file:./assets/quganflow.png]]
 
-Firstly, only generated molecules that have high affinity towards the receptor binding sites are considered as valid. Next, a parameterized quantum circuit with last-layer N measures the expectation values and a processes it through a classical stage. Then, we apply the atom layer and bond layer to generate synthetic molecular graphs. Afterwards, a batch of real molecules from a training dataset (in this case we are using QM9) and a batch of generated synthetic molecules are fed into a classical discriminator for real/synthetic prediction and Frechet distance score calculation.
+Firstly, only generated molecules that have high affinity towards the receptor binding sites are considered as valid. [cite:@Andreyev2020] Next, a parameterized quantum circuit with last-layer N measures the expectation values and a processes it through a classical stage. Then, we apply the atom layer and bond layer to generate synthetic molecular graphs. Afterwards, a batch of real molecules from a training dataset (in this case we are using QM9) and a batch of generated synthetic molecules are fed into a classical discriminator for real/synthetic prediction and Frechet distance score calculation.
 
 ** Data
 
@@ -201,14 +201,18 @@ As of early 2022, IBM Quantum Services allows researchers and students to use th
 
 On the other hand our algorithms can also be applied to healthcare cost analysis, such as improving insurance pricing computations, allowing for lower average premiums, as well as better-tailored premium options. We strongly believe investing in quantum computing now will result in increased profits in the future.
 
+
 * Conclusion and Further Research
 
+As you can see Healthcare data, collected from the many different modalities and locations that surround patients—is underused today. Clinical factors only account for a small percentage of health-relevant data. Therefore, obtaining actionable insights from other areas, including genomics, behavior, and social and environmental influences, is critical.
 
+Quantum-enhanced machine learning algorithms stand out for their breadth of application, their efficiency and relatively low running costs. We are entering an era where the characteristics of health datasets, such as being frequently heterogeneous and unevenly distributed, are producing complex computational challenges for modern AI. For instance, researchers have been exploring how to speed up the computationally expensive algorithms that are at the core of machine learning and AI modeling with quantum approaches, including operations with large matrices.
 
+The maturity horizons of quantum computing use cases in healthcare depend not only on cross-industry quantum algorithm and hardware developments, but also on the increasing availability of relevant data. While certain modalities are already being leveraged for advanced computational modeling, health-relevant datasets are rapidly growing from increases in both the number of people being “instrumented,” as well as the data types being collected. As the number of accessible health- relevant data sources continues to grow, the potential for quantum computing to add value likewise increases.
 
 * References
 
-#+cite_export: csl acm-siggraph.csl
+#+cite_export: csl apa.csl
 #+bibliography: bibliography.bib
 #+print_bibliography: 
 
