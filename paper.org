@@ -109,7 +109,7 @@ The full code for both notebooks are available under [[file:prototype/][the prot
 #+attr_html: :width 100%
 [[file:./assets/imagenet.png]]
 
-We have created a base neural network model, which utilizes hybrid machine learning to create a model trained from any dataset in ImageNet format. The base model is used as the base for Transfer Learning, on an Image Classification task (based on resnet18). The last layer of this pre-trained model (fully-connected/fc layer) is then modified through a quantum machine learning framework, generating a new model. We will be testing its efficiency, practicality, and accuracy. We are training the model with 5 Qubits at 16 epochs
+We have created a base neural network model, which utilizes hybrid machine learning to create a model trained from any dataset in ImageNet format. The base model is used as the base for Transfer Learning, on an Image Classification task (based on resnet18). The last layer of this pre-trained model (fully-connected/fc layer) is then modified through a quantum machine learning framework, generating a new model. We will be testing its efficiency, practicality, and accuracy. We are training the model with 4 Qubits at 8 epochs.
 
 ** Quantum Accelerated Drug & Molecule Generation (QGAN-HG)
 
