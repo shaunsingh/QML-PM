@@ -1,0 +1,205 @@
+#+title: Accelerating Precision Medicine with Quantum Computing and AI
+#+subtitle: Exploring the future of Personalized Health Care
+#+author: Shaurya Singh
+#+startup: fold
+
+#+latex_class: chameleon
+
+#+options: coverpage:yes
+#+options: html-style:nil
+#+options: html-scripts:nil
+#+options: html-postamble:nil
+#+options: broken-links:mark
+
+#+bibliography: paper.bib
+
+#+begin_abstract
+The convergence of quantum computing, artificial intelligence, and precision medicine promises to revolutionize health care. Precision medicine methods identify phenotypes of patients with less-common responses to treatment or unique healthcare needs.  AI  leverages sophisticated computation and inference to generate insights, enables the system to reason and learn, and empowers clinician decision-making through augmented intelligence. Quantum-accelerated machine learning could support further breakthroughs in this area and ultimately enable causal inference models for drugs, identifying and explaining relationships among interventions and treatments on the one hand, and outcomes on the other in real-time, to provide the next-best medical action at the individual level.
+
+- *Keywords:* Quantum Computing, Artificial intelligence, Precision Medicine
+- *Environment:* call_document-info()
+- *License:* MIT
+#+end_abstract
+
+#+caption: *IBM System One*
+#+attr_html: :width 100%
+[[file:./assets/sysone.jpg]]
+
+#+begin_quote
+"By augmenting human performance, AI has the potential to markedly improve productivity, efficiency, workflow, accuracy and speed, both for [physicians] and for patients … What I’m most excited about is using the future to bring back the past: to restore the care in healthcare." . @@latex:\mbox{@@--- Eric Topol@@latex:}@@
+#+end_quote
+
+* Introduction
+
+Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent. Increasingly, this data helps address 4 challenges associated with healthcare: better health, lower cost, enhanced patient experiences, and improved healthcare practitioner work lives. At the same time, healthcare consumers are making more decisions and have to navigate an increasingly complex system.
+
+Traditionally, diagnosing a patient’s condition has been based heavily on the umbrella approach, which is based solely on the patient-reported symptoms, resulting in an umbrella diagnosis and treatment that frequently fails to achieve their intended effects due to individual variability. As a result, many existing therapies fail to achieve their intended effects due to individual variability. For example, only a third of patients respond to drug-based cancer therapies. In some cases, the consequences of drug therapies can be disastrous; in Europe alone, up to 200,000 people die each year due to adverse drug reactions. In addition, this classical approach is tremendously time-consuming and expensive. Precision medicine aims to allow tailor prevention and treatment with an individual approach.
+
+Precision medicine aims to tailor prevention and treatment approaches to the individual. Due to the complexity of human biology, individualized medicine requires taking into account aspects that go well beyond standard medical care. Medical care only has a relative contribution of 10 to 20 percent to outcomes; health-related behaviors, socioeconomic factors, and environmental aspects account for the other 80 to 90 percent. Computationally, the interdependencies and correlations among these diverse contributors create formidable challenges concerning optimizing treatment effectiveness.
+
+Significant investments are being made to deliver the right data and powerful insights at the point of care. Industry incumbents and new entrants alike are trying to create digital experiences that reinforce healthy, preventive behaviors. Despite that, accounting for the exponential possibilities from this diversity of new data is stretching the capabilities of classical computing systems.
+
+* AI in Precision Medicine
+
+#+caption: *Precision Approach vs. Umbrella Approach*
+#+attr_html: ::width 100%
+[[file:./assets/precisionMedicineApproach.png]]
+
+A key aspect of tailoring medical approaches is proactivity. Early treatments and preventive interventions tend to drastically improve outcomes and optimize costs. Classical machine learning has already shown some promise in predicting the risk of future diseases for a range of patient groups based on EHRs. Nevertheless, challenges remain due to the characteristics of EHRs and other health-relevant data, including the level of noise, size of the relevant feature space, and complexity of interactions among the features. This suggests supervised and unsupervised quantum-enhanced machine learning techniques could allow earlier more accurate, and more granular risk predictions. Eventually, medical practitioners might even have the tools to understand how an individual’s risk for any given condition changes over time, enabled by continual virtual diagnostics based on ongoing data streams from individuals. Knowing an individual’s disease risk is not sufficient, however. Just as important as knowing how to effectively medically intervene for any given individual. One avenue in this endeavor is the study of drug sensitivity at the cellular level.
+
+** Accelerating AI with Quantum Computing
+
+Quantum computers process information in a fundamentally different way from traditional computers. Previous computer technology advancements—such as integrated circuits—enabled faster computing, but were still based on classical information processing. These computers manipulate quantum bits (qubits). These are unlike classical bits, which store information as either a 0 or 1, and they can display uniquely quantum properties, such as entanglement. As a result, it becomes possible to construct quantum algorithms that can outperform their classical counterparts which are not able to leverage quantum phenomena.
+
+- Chemistry, machine learning/artificial intelligence (AI), optimization, or simulation tasks. Machine learning has shown potential to be enhanced by quantum computing and is symbiotically helping drive quantum advances
+- Complex correlations and interdependencies among many highly interconnected elements, such as molecular structures in which many electrons interact
+- Inherent scaling limits of relevant classical algorithms. For instance, the resource requirements of classical algorithms may increase exponentially with problem size, as is the case when simulating the time evolution of quantum systems.
+
+** Hybrid Quantum-Classical Neural Networks
+
+#+caption: *Example of a Hybrid Quantum-Classical Neural Network*
+#+attr_html: :width 100%
+[[file:./assets/hybridnetwork.png]]
+
+The most computationally demanding part of gradient-based algorithms, namely, computing the fitness function and its gradient for control input, can be accomplished by the process of evolution and measurement on quantum hardware. By posing queries to and receiving answers from these devices, classical computing devices update the control parameters until an optimal control solution is found.
+
+Using this hybrid approach gives rise to interesting areas of research that seek to leverage the principles of quantum mechanics to augment machine learning or vice-versa. Enabling us to enhance classical ML algorithms by outsourcing difficult calculations to a quantum computer.
+
+To create a quantum-classical neural network, one can implement a hidden layer for a neural network using a parameterized quantum circuit, a quantum circuit where the rotation angles for each gate are specified by the components of a classical input vector. The outputs from the neural network's previous layer will be collected and used as the inputs for a parameterized circuit. The measurement statistics of the circuit can then be collected and used as inputs for the following layer.
+
+In this example, \sigma is a nonlinear function and \(h_{i}\) is the value of neuron i at each hidden layer. \(R(h_{i})\) represents any rotation gate about an angle equal to \(h_{i}\) and \(y\) is the final prediction value generated from the hybrid network
+
+#+caption: *Quantum-classical Neural Network using a Parameterized Quantum Circuit*
+#+attr_html: :width 100%
+[[file:./assets/neuralnetworkQC.png]]
+
+** Generative Adversarial Networks
+
+Generative Adversarial Networks, or GANs for short, are an approach to generative modeling using deep learning methods, such as convolutional neural networks. Generative modeling is an unsupervised learning task in machine learning that involves automatically discovering and learning the regularities or patterns in input data in such a way that the model can be used to generate or output new examples that plausibly could have been drawn from the original dataset.
+
+GANs are a clever way of training a generative model by framing the problem as a supervised learning problem with two sub-models: the generator model that we train to generate new examples, and the discriminator model that tries to classify examples as either real (from the domain) or fake (generated). The two models are trained together in a zero-sum game, adversarial, until the discriminator model is fooled about half the time, meaning the generator model is generating plausible examples.
+
+*** MolGAN
+
+Existing drug discovery pipelines take 5-10 years and cost billions of dollars. Computational approaches aim to sample from regions of the whole molecular and solid-state compounds called chemical space which could be on the order of 1060. Deep generative models can model the underlying probability distribution of both the physical structures and property of drugs and relate them nonlinearly. By exploiting patterns in massive datasets, these models can distill salient features that characterize the molecules. We can utilize Generative Adversarial Networks (GANs) discover drug candidates by generating molecular structures that obey chemical and physical properties and show affinity towards binding with the receptor for a target disease.
+
+Currently, this is accomplished through the Tensorflow library [[https://github.com/nicola-decao/MolGAN][MolGAN]]. However,  However, classical GANs cannot explore certain regions of the chemical space and suffer from curse-of-dimensionality. Computing these drug candidates can be computationally expensive, and the resource requirements of these classical algorithms increase exponentially with problem size. On the other hand. A full quantum GAN may require more than 90 qubits even to generate QM9-like small molecules, and is impractical in the current day and age
+
+*** Qubit-efficient Quantum Molecule Generation
+
+Once again, we can apply our hybrid approach. A qubit-efficient quantum GAN with a hybrid generator (QGAN-HG) can be used to learn a richer representation of molecules via searching exponentially large chemical space with fewer qubits and more efficiently than a classical GAN. The QGAN-HG model is composed of a hybrid quantum generator that supports various number of qubits and quantum circuit layers, and, a classical discriminator. The approach is significantly quicker than our classical GAN model.
+
+#+attr_html: ::width 100%
+[[file:./assets/systemarchitecture.png]]
+
+* Prototype
+
+To test the speed, practicality, efficiency, and cost of quantum-accelerated ML as well as its usefulness in precision medicine, we have devised two prototypes written in python. The concise, expressive, and dynamic nature of the Python language makes it well suited for prototyping tasks. Notebook one will test how viable our QML approach is at accelerating image and text sorting. This script can be used to identify mutations, distinguish genomic variants, as well as identify an indivudual's susceptiblity to rare diseases through an analysis of their previous health and history. Notebook 2 will generate viable
+
+- notebook 1 tests how viable QML is for accelerating image and text sorting
+- notebook 2 tests how viable QML is for accelerating drug and molecule generation
+
+To test the practicality of quantum accelereted ML, we have created two prototypes. Both prototypes are written in python and utilize PyTorch as well as
+
+The full code for both notebooks are available under [[file:prototype/][the prototype folder]].
+
+** Image recognition
+
+#+caption: *Hybrid Base Nueral Network*
+#+attr_html: :width 100%
+[[file:./assets/imagenet.png]]
+
+We have created a base neural network model, which utilizes hybrid machine learning to create a model trained from any dataset in ImageNet format. The base model is used as the base for Transfer Learning, on an Image Classification task (based on resnet18). The last layer of this pre-trained model (fully-connected/fc layer) is then modified through a quantum machine learning framework, generating a new model. We will be testing its efficiency, practicality, and accuracy. We are training the model with 5 Qubits at 16 epochs
+
+** Quantum Accelerated Drug & Molecule Generation (QGAN-HG)
+
+#+caption: *Quantum Accelerated Molecule Generation*
+#+attr_html: :width 100%
+[[file:./assets/quganflow.png]]
+
+Firstly, only generated molecules that have high affinity towards the receptor binding sites are considered as valid. Next, a parameterized quantum circuit with last-layer N measures the expectation values and a processes it through a classical stage. Then, we apply the atom layer and bond layer to generate synthetic molecular graphs. Afterwards, a batch of real molecules from a training dataset (in this case we are using QM9) and a batch of generated synthetic molecules are fed into a classical discriminator for real/synthetic prediction and Frechet distance score calculation.
+
+** Data
+
+Our Image Data is obtained from Standford's ImageNet collection, a large-scale ontology of images built upon the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500–1000 clean and full resolution images, with currently over 14,197,122 images and 21841 synsets indexed. The specific dataset used in this example can be found at [[https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia][Paul Timothy: Chest X-RAY Pneumonia Dataset]], and is liscensed under CC0 1.0: Public Domain.
+
+The Molecular data used to train our MolGAN and QuGAN models is the QM9 Dataset obtained from Anatole von Lilienfeld. The dataset contains the computed geometric, energetic, electronic, and thermodynamic properties for 134k stable small organic molecules made up of CHONF. These molecules correspond to the subset of all 133,885 species with up to nine heavy atoms (CONF) out of the GDB-17 chemical universe of 166 billion organic molecules. The model is trained on geometries, corresponding harmonic frequencies, dipole moments, polarizabilities, along with energies and enthalpies. The dataset is hosted on [[https://doi.org/10.6084/m9.figshare.c.978904.v5][figshare]].
+
+** Tools and Hardware
+
+The open-source Qiskit framework provides convenient access to multiple quantum simulators as well as a real quantum computer backend. The user can choose to utilize either IBM's cloud-based QASM simulator technology, or Google's local equivalent Cirq. Both backends allow for quick training and testing via quantum simulators and real quantum hardware.
+
+#+caption: *Actual vs. Simulated Hardware*
+#+attr_html: :width 100%
+[[file:./assets/simulatedvsreal.png]]
+
+While simulated hardware produces /slightly/ different results to actual hardware, the margin is within 1%. The tests below were conducted using actual IBMQ hardware, on the =ibmq_lima= quantum computer.
+
+Code is developed in Jupyter notebooks allowing for quick prototypng, and utilize PyTorch for pre-processing and post-processing of our neural network, taking advantage of GPU Acceleration via Nvidia CUDA if available. This allows us to process images in realtime on Google's Compute Engine VM's via Google Colab, allowing for low operating costs, high performance, and good portability.
+
+#+caption: *Sample Generated Quantum Circuit on IBMQ*
+#+attr_html: :width 100%
+[[file:./assets/circuit.png]]
+
+* Results
+
+** Speed
+
+#+caption: *Training comparison among GAN flavors*
+#+attr_html: :width 100%
+[[file:./assets/quganresults.png]]
+
+** Accuracy
+
+** Pricing
+
+TODO
+- speed
+- pricing
+- graphs
+- UI images
+
+* Conclusion and Further Research
+
+* References
+
+#+print_bibliography: 
+
+#+begin_quote
+We acknowledge the use of IBM Quantum services for this work. The views expressed are those of the authors, and do not reflect the official policy or position of IBM or the IBM Quantum team.
+#+end_quote
+
+* Code snippets :noexport:
+** Notebook information :lisp:
+
+#+name: document-info
+#+header: :var python=python-version emacs=emacs-version org=org-version
+#+begin_src python :results raw :exports results
+return f"{emacs}, {org} & {python}"
+#+end_src
+#+results: document-info
+
+** Emacs version :lisp:
+
+#+name: emacs-version
+#+begin_src emacs-lisp :export none :results raw
+(format "[[https://www.gnu.org/software/emacs/][Emacs]] %d.%d"
+        emacs-major-version emacs-minor-version)
+#+end_src
+
+** Org mode version :lisp:
+
+#+name: org-version
+#+begin_src emacs-lisp :export none :results raw
+(format "[[https://www.gnu.org/software/emacs/][Org mode]] %s"
+        (org-version nil nil))
+#+end_src
+
+** Python version :python:
+
+#+name: python-version
+#+begin_src python :export none :results raw
+import platform
+version = platform.python_version()
+return f"[[https://www.python.org/][Python]] {version}"
+#+end_src
