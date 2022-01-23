@@ -31,11 +31,14 @@ The convergence of quantum computing, artificial intelligence, and precision med
 
 * Introduction
 
-Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent. Increasingly, this data helps address 4 challenges associated with healthcare: better health, lower cost, enhanced patient experiences, and improved healthcare practitioner work lives. At the same time, healthcare consumers are making more decisions and have to navigate an increasingly complex system.
+Healthcare data—such as information from clinical trials, disease registries, electronic health records (EHRs), and medical devices—is growing at a compound annual growth rate of 36 percent. Increasingly, this data helps address 4 challenges associated with healthcare
 
-Traditionally, diagnosing a patient’s condition has been based heavily on the umbrella approach, which is based solely on the patient-reported symptoms, resulting in an umbrella diagnosis and treatment that frequently fails to achieve their intended effects due to individual variability. As a result, many existing therapies fail to achieve their intended effects due to individual variability. For example, only a third of patients respond to drug-based cancer therapies. In some cases, the consequences of drug therapies can be disastrous; in Europe alone, up to 200,000 people die each year due to adverse drug reactions. In addition, this classical approach is tremendously time-consuming and expensive. Precision medicine aims to allow tailor prevention and treatment with an individual approach.
+- Better health
+- Lower cost
+- Enhanced patient experiences
+- Improved healthcare practitioner work lives.
 
-Precision medicine aims to tailor prevention and treatment approaches to the individual. Due to the complexity of human biology, individualized medicine requires taking into account aspects that go well beyond standard medical care. Medical care only has a relative contribution of 10 to 20 percent to outcomes; health-related behaviors, socioeconomic factors, and environmental aspects account for the other 80 to 90 percent. Computationally, the interdependencies and correlations among these diverse contributors create formidable challenges concerning optimizing treatment effectiveness.
+At the same time, healthcare consumers are making more decisions and have to navigate an increasingly complex system. Traditionally, diagnosing a patient’s condition has been based heavily on the umbrella approach, which is based solely on the patient-reported symptoms, resulting in an umbrella diagnosis and treatment that frequently fails to achieve their intended effects due to individual variability. As a result, many existing therapies fail to achieve their intended effects due to individual variability. Precision medicine aims to allow tailor prevention and treatment with an individual approach. Due to the complexity of human biology, individualized medicine requires taking into account aspects that go well beyond standard medical care. Medical care only has a relative contribution of 10 to 20 percent to outcomes; health-related behaviors, socioeconomic factors, and environmental aspects account for the other 80 to 90 percent. Computationally, the interdependencies and correlations among these diverse contributors create formidable challenges concerning optimizing treatment effectiveness.
 
 Significant investments are being made to deliver the right data and powerful insights at the point of care. Industry incumbents and new entrants alike are trying to create digital experiences that reinforce healthy, preventive behaviors. Despite that, accounting for the exponential possibilities from this diversity of new data is stretching the capabilities of classical computing systems.
 
@@ -45,7 +48,7 @@ Significant investments are being made to deliver the right data and powerful in
 #+attr_html: ::width 100%
 [[file:./assets/precisionMedicineApproach.png]]
 
-A key aspect of tailoring medical approaches is proactivity. Early treatments and preventive interventions tend to drastically improve outcomes and optimize costs. Classical machine learning has already shown some promise in predicting the risk of future diseases for a range of patient groups based on EHRs. Nevertheless, challenges remain due to the characteristics of EHRs and other health-relevant data, including the level of noise, size of the relevant feature space, and complexity of interactions among the features. This suggests supervised and unsupervised quantum-enhanced machine learning techniques could allow earlier more accurate, and more granular risk predictions. Eventually, medical practitioners might even have the tools to understand how an individual’s risk for any given condition changes over time, enabled by continual virtual diagnostics based on ongoing data streams from individuals. Knowing an individual’s disease risk is not sufficient, however. Just as important as knowing how to effectively medically intervene for any given individual. One avenue in this endeavor is the study of drug sensitivity at the cellular level.
+A key aspect of tailoring medical approaches is proactivity. Early treatments and preventive interventions tend to drastically improve outcomes and optimize costs. Classical machine learning has already shown some promise in predicting the risk of future diseases for a range of patient groups based on EHRs. Supervised and unsupervised quantum-enhanced machine learning techniques could allow earlier more accurate, and more granular risk predictions. Eventually, medical practitioners might even have the tools to understand how an individual’s risk for any given condition changes over time, enabled by continual virtual diagnostics based on ongoing data streams from individuals.
 
 ** Accelerating AI with Quantum Computing
 
@@ -94,16 +97,11 @@ Once again, we can apply our hybrid approach. A qubit-efficient quantum GAN with
 
 * Prototype
 
-To test the speed, practicality, efficiency, and cost of quantum-accelerated ML as well as its usefulness in precision medicine, we have devised two prototypes written in python. The concise, expressive, and dynamic nature of the Python language makes it well suited for prototyping tasks. Notebook one will test how viable our QML approach is at accelerating image and text sorting. This script can be used to identify mutations, distinguish genomic variants, as well as identify an indivudual's susceptiblity to rare diseases through an analysis of their previous health and history. Notebook 2 will generate viable
-
-- notebook 1 tests how viable QML is for accelerating image and text sorting
-- notebook 2 tests how viable QML is for accelerating drug and molecule generation
-
-To test the practicality of quantum accelereted ML, we have created two prototypes. Both prototypes are written in python and utilize PyTorch as well as
+To test the speed, practicality, efficiency, and cost of quantum-accelerated ML as well as its usefulness in precision medicine, we have devised two prototypes written in Python. The concise, expressive, and dynamic nature of the Python language makes it well suited for prototyping tasks. Notebook one will test how viable our QML approach is at accelerating image and text sorting. This script can be adapted to identify mutations, distinguish genomic variants, as well as identify an indivudual's susceptiblity to rare diseases through an analysis of their previous health and history. Notebook 2 will generate viable drugs based on ones that currently exist, and will test how viable our QML approach is to accelerating current conventional drug discovery pipelines. Both models utilize PyTrorch and IBM's Quantum Services for training and testing
 
 The full code for both notebooks are available under [[file:prototype/][the prototype folder]].
 
-** Image recognition
+** Image recognition (QuTorch-HG)
 
 #+caption: *Hybrid Base Nueral Network*
 #+attr_html: :width 100%
@@ -127,9 +125,10 @@ The Molecular data used to train our MolGAN and QuGAN models is the QM9 Dataset 
 
 ** Tools and Hardware
 
-The open-source Qiskit framework provides convenient access to multiple quantum simulators as well as a real quantum computer backend. The user can choose to utilize either IBM's cloud-based QASM simulator technology, or Google's local equivalent Cirq. Both backends allow for quick training and testing via quantum simulators and real quantum hardware.
+The open-source Qiskit framework provides convenient access to multiple quantum simulators as well as a real quantum computer backend. The user can choose to utilize either IBM's cloud-based QASM simulator technology, Google's local equivalent Cirq, and Pennylane's quicker but less accurate lightning simulator. All three backends allow for quick training and testing via quantum simulators and real quantum hardware.
 
 #+caption: *Actual vs. Simulated Hardware*
+#+attr_latex: :width 250pt
 #+attr_html: :width 100%
 [[file:./assets/simulatedvsreal.png]]
 
@@ -145,19 +144,37 @@ Code is developed in Jupyter notebooks allowing for quick prototypng, and utiliz
 
 ** Speed
 
+This is the largest benefit of quantum-accelerated machine learning.  We can see that in both algorithms, quantum computing provided an exponential increase in speed over the non-accelerated counterpart. In the case of QGAN, We can see anywhere from a 8-32% decrease in the time needed to generate molecules, with the same input parameters. In the case of our QuTorch-HG algorithm, it can process a batch of images within 1/10th of a second, allowing for models to be trained at 95% accuracy in under 5 minutes! A similar model, written with tensorflow and trained on the same cpu, took 32 minutes to achieve 94.3% accuracy.
+
 #+caption: *Training comparison among GAN flavors*
 #+attr_html: :width 100%
 [[file:./assets/quganresults.png]]
 
 ** Accuracy
 
+In both prototypes, accuracy was as expected. The QuTorch-HG algorithm tested at around 96.23% accuracy on average on average after 8 epochs. The QGAN prototype created valid molecules 100% of the time during our testing.
+
+#+caption: *Training Accuracy vs. Epochs*
+#+attr_html: :width 100%
+#+attr_latex: :width 250pt
+[[file:./assets/output1.png]]
+[[file:./assets/output2.png]]
+
+#+caption: *Analysis of Pneumonia through our QuTorch-HG algorithm*
+#+attr_html: :width 100%
+#+attr_latex: :width 250pt
+[[file:./assets/output3.png]]
+
+#+caption: *Sample Generated Molecule through our QGAN-HG algorithm*
+#+attr_html: :width 100%
+#+attr_latex: :width 250pt
+[[file:./assets/output4.png]]
+
 ** Pricing
 
-TODO
-- speed
-- pricing
-- graphs
-- UI images
+As of early 2022, IBM Quantum Services allows researchers and students to use their 5 qubit quantum computers for development free of charge. The GPU accelerator was provided by Google's Colab program, free of charge as well. Those looking for real-time analysis can utilize Google Compute Engine VM's, such as the A2 Accelerator for just $0.009 an hour. Our hybrid model is effecient and as all computation is handled through the cloud, energy costs are nominal.
+
+On the other hand our algorithms can also be applied to healthcare cost analysis, such as improving insurance pricing computations, allowing for lower average premiums, as well as better-tailored premium options. We strongly believe investing in quantum computing now will result in increased profits in the future.
 
 * Conclusion and Further Research
 
