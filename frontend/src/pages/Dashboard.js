@@ -183,7 +183,7 @@ function Dashboard() {
                   <div class="grid__row">
                     <div class="grid__col grid__col--16 grid__col--mb-12 grid__col--margin grid__col--padding gradient-blue widget-icon selected">
                       <Link
-                        to="/record"
+                        to="/dashboard"
                         style={{ padding: "1px", color: "white" }}
                       >
                         {" "}
@@ -195,7 +195,7 @@ function Dashboard() {
 
                     <div class="grid__col grid__col--16 grid__col--mb-12 grid__col--margin grid__col--padding gradient-lightblue widget-icon selected">
                       <Link
-                        to="/login"
+                        to="/QuTorch-HG"
                         style={{ padding: "1px", color: "white" }}
                       >
                         {" "}
@@ -206,7 +206,7 @@ function Dashboard() {
                     </div>
                     <div class="grid__col grid__col--16 grid__col--mb-12 grid__col--margin grid__col--padding gradient-pink widget-icon selected">
                       <Link
-                        to="/login"
+                        to="/QuGAN-HG"
                         style={{ padding: "1px", color: "white" }}
                       >
                         <span class="widget-icon__badge">2 NEW</span>

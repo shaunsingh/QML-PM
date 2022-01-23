@@ -11,7 +11,6 @@ import NavbarNoAuth from "./components/Navbar/NavbarNoAuth";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true); //change state to true to see navbar items, leave blank to see noAuth bar
-
   return (
     <div className="App">
       {!isAuth & (window.pathname !== "/login") ? <NavbarNoAuth /> : <Navbar />}
@@ -21,7 +20,7 @@ function App() {
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/QuTorch-HG" element={<QuTorchHG />} />
           <Route path="/QuGAN-HG" element={<QuGANHG />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings" element={<Settings setIsAuth={setIsAuth}/>} />
         </Routes>
       </Router>
     </div>

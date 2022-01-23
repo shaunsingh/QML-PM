@@ -9,7 +9,7 @@ function Login({ setIsAuth }) {
   let navigate = useNavigate();
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
-      localStorage.setItem("isAuth", false);
+      localStorage.setItem("isAuth", true);
       setIsAuth(true);
       navigate("/dashboard");
     });
