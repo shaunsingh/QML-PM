@@ -18,8 +18,8 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
-          <Route path="/QuTorch-HG" element={<QuTorchHG />} />
-          <Route path="/QuGAN-HG" element={<QuGANHG />} />
+          <Route path="https://github.com/shaunsingh/QML-PM/blob/main/prototype/QMLImageClassification.ipynb"/>
+          <Route path="https://github.com/shaunsingh/QML-PM/blob/main/prototype/qgan_example.ipynb"/>
           <Route path="/settings" element={<Settings setIsAuth={setIsAuth}/>} />
         </Routes>
       </Router>

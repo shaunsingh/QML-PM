@@ -6,12 +6,12 @@ export const MenuItems = [
   },
   {
     title: "Train / QuTorch-HG",
-    url: "QuTorch-HG",
+    url: "https://github.com/shaunsingh/QML-PM/blob/main/prototype/QMLImageClassification.ipynb",
     cName: "nav-links",
   },
   {
     title: "Generate / QuGAN-HG",
-    url: "QuGAN-HG",
+    url: "https://github.com/shaunsingh/QML-PM/blob/main/prototype/qgan_example.ipynb",
     cName: "nav-links",
   },
   {
