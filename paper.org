@@ -1,6 +1,6 @@
 #+title: Accelerating Precision Medicine with Quantum Computing and AI
 #+subtitle: Exploring the future of Personalized Health Care
-#+author: Shaurya Singh
+#+author: Shaurya Singh, Abrahim Mahmud
 #+startup: fold
 
 #+latex_class: chameleon
