@@ -3,6 +3,7 @@
  Accelerating Precision Medicine with Quantum Computing and AI: Exploring the future of Personalized Health Care
 
 Please refer to https://github.com/shaunsingh/QML-PM/blob/main/paper.pdf for the full version of this paper
+Please see https://docs.google.com/presentation/d/1q5QH6U0M_EpMArsLx9iSsVV2LGDRYQCJ5wVSVbzw1hU/edit?usp=sharing for a presentation of the paper
 
 # Abstract
 
