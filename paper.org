@@ -1,6 +1,6 @@
 #+title: Accelerating Precision Medicine with Quantum Computing and AI
 #+subtitle: Exploring the future of Personalized Health Care
-#+author: Shaurya Singh, Abrahim Mahmud
+#+author: Shaurya Singh
 #+startup: fold
 
 #+latex_class: chameleon
@@ -160,7 +160,11 @@ The open-source Qiskit framework provides convenient access to multiple quantum 
 
 While simulated hardware produces /slightly/ different results to actual hardware, the margin is within 1%. The tests below were conducted using actual IBMQ hardware, on the =ibmq_lima= quantum computer [cite:@IBM:2021]
 
-Code is developed in Jupyter notebooks allowing for quick prototyping, and utilize PyTorch for pre-processing and post-processing of our neural network, taking advantage of GPU Acceleration via Nvidia CUDA if available. This allows us to process images in real time on Google's Compute Engine VM's via Google Colab, allowing for low operating costs, high performance, and good portability.
+Code is developed in emacs' org-mode, combined with Jupyter kernels allowing for quick prototyping, and utilize PyTorch for pre-processing and post-processing of our neural network, taking advantage of GPU Acceleration via Nvidia CUDA if available. This allows us to process images in real time on Google's Compute Engine VM's via Google Colab, allowing for low operating costs, high performance, and good portability. Org-Mode allows us to document our code and easily integrate with other languages, while staying in a simple plain text format.
+
+#+caption: *Jupyter in Org-Mode*
+#+attr_html: :width 100%
+[[file:./assets/literatejupyter.png]]
 
 Nix and NixOS are used for dependency management, allowing us to create reproducible, binary cached, distributed, and non-privileged builds for our software. This also allows for quicker deployments on hardware and provides stability for the end-user, as well as allows us to quickly spin up development environments on UNIX-based hardware.
 
@@ -203,6 +207,20 @@ In both prototypes, accuracy was as expected. The QuTorch-HG algorithm tested at
 As of early 2022, IBM Quantum Services allows researchers and students to use their 5 qubit quantum computers for development free of charge. The GPU accelerator was provided by Google's Colab program, free of charge as well. Those looking for real-time analysis can utilize Google Compute Engine VM's, such as the A2 Accelerator for just $0.009 an hour. Our hybrid model is efficient and as all computation is handled through the cloud, energy costs are nominal.
 
 On the other hand, our algorithms can also be applied to healthcare cost analysis, such as improving insurance pricing computations, allowing for lower average premiums, as well as better-tailored premium options. We strongly believe investing in quantum computing now will result in increased profits in the future.
+
+** Frontend
+
+In order to provide users an easy interface to collect and store their data, we created a Frontend written in React. Through React, we created a website that can collect crucial information, display user data, as well as ensure each user has their data easily accessible and protected through a database managed on firestore, backed up Google's OAuth authentication. Each user can view their likely hood for rare diseases, can document any symptoms or issues they're experiencing, talk with a live doctor, and analyze XRAY-scans.
+
+The full code for both notebooks are available under [[file:frontend/][the frontend folder]].
+
+#+caption: *Google Login with Firebase*
+#+attr_html: :width 100%
+[[file:./assets/QML-PM_LOGIN.png]]
+
+#+caption: *React-based User Dashboard and Frontend*
+#+attr_html: :width 100%
+[[file:./assets/QML-PM_DASHBOARD.png]]
 
 * Conclusion and Further Research
 
